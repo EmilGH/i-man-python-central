@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 
-
 ## The line below creates a function called runQuiz1.  Put all the code for the first quiz here... (indented once!)
 def runQuiz1():
 	print("Now running Quiz 1: History Quiz")
@@ -57,18 +56,64 @@ def runQuiz1():
 	score = int(score / len(questions) * 100)
 	print(f"Your score is: {score}%")
 
-	print()
-	print("Did you enjoy the Quiz? ")
-	input()
-	
-	user_input = input("Did you enjoy your quiz: ")
+	user_input = input("Did you enjoy the Quiz? ")
 	print("Really, " + user_input + "! Go to know?")
 
 ## The line below creates a function called runQuiz2.  Put all the code for the second quiz here... (indented once!)
 def runQuiz2():
 	print("Now running Quiz 2: The Dog Quiz")
 
-	##Insert Quiz 2 Code here...
+	questions = ("What is the best dog?: ",
+					"Dogs are called ____: ",
+					"What is a dog's favorite food?: ")
+	
+	options = (("A. Mutt", "B. Collie", "C. Momo", "D. None."),
+					("A. Man's Best Friend", "B. Loyal and Loving", "C. Furry and Funny", "D. Stinky"),
+					("A. Kibble", "B. Tacos", "C. Fish", "D. Their own shit"))
+	
+	answers = ("D", "D", "D")
+	guesses = []
+	score = 0
+	question_num = 0
+	
+	for question in questions:
+		print()
+		print("----------------------")
+		print(question)
+		for option in options[question_num]:
+			print(option)
+			
+		guess = input("Enter (A, B, C, D): ").upper()
+		guesses.append(guess)
+		if guess == answers[question_num]:
+			score += 1
+			print("That is correct, " + name)
+		else:
+			print("Nope.")
+			print(f"{answers[question_num]} is the correct answer")
+		question_num += 1
+
+	print()
+	print("----------------------")
+	print("       RESULTS        ")
+	print("----------------------")
+
+	print("Right Answers: ", end="")
+	for answer in answers:
+		print(answer, end=" ")
+	print()
+
+	print(" Your Answers: ", end="")
+	for guess in guesses:
+		print(guess, end=" ")
+	print()
+
+	score = int(score / len(questions) * 100)
+	print(f"Your score is: {score}%")
+
+	user_input = input("Did you enjoy the Quiz? ")
+	print("Really, " + user_input + "! Go to know?")
+
 
 ## This is where the script will start to run...
 
